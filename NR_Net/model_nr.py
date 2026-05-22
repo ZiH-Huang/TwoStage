@@ -73,8 +73,8 @@ class Network(nn.Module):
 
         if if_test == 1:
             x_predict = self.branch1(h)
-            h = torch.softmax(x_predict, dim=1)
-            h = torch.argmax(x_predict, dim=1)
+            x_predict = torch.softmax(x_predict, dim=1)
+            x_predict = torch.argmax(x_predict, dim=1)
             coarse_prob = x_predict.squeeze()
             return coarse_prob
 
